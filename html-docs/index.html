@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <title>D3 Test</title>
+        <script src="https://d3js.org/d3.v4.min.js"></script>
+        <style type="text/css">
+
+            div.bar{
+                display: inline-block;
+                width: 20px;
+                height: 75px;
+                background-color: teal;
+                margin-right: 2px;
+            }
+
+        </style>
+
+    </head>
+    <body>
+        <script type = "text/javascript">
+
+            //var dataset = [5,10,30,12,1,15,3,20,10,5,25];
+            var dataset = [];
+            for (var i = 0; i < 25; i++){
+                var newNumber = Math.random() * 30;
+                dataset.push(newNumber);
+            }
+
+            d3.select("body").selectAll("p")
+                             .data(dataset)
+                             .enter()
+                             .append("div")
+                             .attr("class", "bar")
+                             .style("height", function(d){ return 5*d + "px";});
+
+        </script>
+    </body>
+</html>
